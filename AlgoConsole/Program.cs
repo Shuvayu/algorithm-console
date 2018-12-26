@@ -10,7 +10,7 @@ namespace AlgoConsole
 
         public static void Main()
         {
-            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
             Console.ForegroundColor = ConsoleColor.White;
             Console.Title = "Algorithm Playground";
 
