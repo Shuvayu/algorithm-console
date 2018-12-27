@@ -1,5 +1,6 @@
 ﻿using AlgoIApplication;
 using System;
+using System.Collections.Generic;
 
 namespace AlgoApplication.Arrays
 {
@@ -22,6 +23,7 @@ namespace AlgoApplication.Arrays
             Input();
 
             Process();
+            ProcessWithDicytionary();
 
             Console.Write(Environment.NewLine);
         }
@@ -45,6 +47,25 @@ namespace AlgoApplication.Arrays
                 {
                     break;
                 }
+            }
+        }
+
+        private void ProcessWithDicytionary()
+        {
+            var numsDictionary = new Dictionary<int, int>();
+
+            for (int i = 0; i < ArraySize; i++)
+            {
+                var num = InputArray[i];
+
+                if (num > TargetValue) { continue; }
+
+                if (numsDictionary.TryGetValue(TargetValue - num, out int index))
+                {
+                    Console.WriteLine($"The indices of the two numbers using dictionary are {i} and {index}");
+                }
+
+                numsDictionary[num] = i;
             }
         }
 

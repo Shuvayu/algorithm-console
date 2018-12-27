@@ -26,6 +26,7 @@ namespace AlgoApplication.Arrays
         {
             Input();
             Process();
+            ProcessWithOneLoop();
         }
 
         private void Input()
@@ -59,6 +60,19 @@ namespace AlgoApplication.Arrays
                 }
             }
             Output(buyIndex, sellIndex);
+        }
+
+        private void ProcessWithOneLoop()
+        {
+            var maxProfit = 0;
+            var currentMin = InputArray[0];
+
+            for (int i = 1; i < InputArray.Length; i++)
+            {
+                maxProfit = Math.Max(maxProfit, InputArray[i] - currentMin);
+                currentMin = Math.Min(currentMin, InputArray[i]);
+            }
+            Console.WriteLine($"Max Profit is {maxProfit}");
         }
 
         private void Output(int buyIndex, int sellIndex)
