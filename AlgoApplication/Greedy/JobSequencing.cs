@@ -13,10 +13,8 @@ namespace AlgoApplication.Greedy
             Job job = new();
             job.PopulateDefaultJobList();
 
-            Console.WriteLine("Following is maximum profit sequence of jobs");
-
             // Calling function
-            job.PrintJobScheduling(3);
+            job.PrintJobScheduling(4);
             Console.Write(Environment.NewLine);
         }
     }
@@ -41,17 +39,16 @@ namespace AlgoApplication.Greedy
             this.profit = profit;
         }
 
-        // Function to schedule the jobs take 2
-        // arguments arraylist and no of jobs to schedule
+        // Arguments arraylist and no. of jobs to schedule
         public void PrintJobScheduling(int t)
         {
             // Length of array
             int n = _jobList.Count;
 
-            GFG gg = new();
+            JobComparer jc = new();
             // Sort all jobs according to
             // decreasing order of profit
-            _jobList.Sort(gg);
+            _jobList.Sort(jc);
 
             // To keep track of free time slots
             bool[] result = new bool[t];
@@ -89,7 +86,7 @@ namespace AlgoApplication.Greedy
             }
 
             Console.WriteLine();
-            Console.Write("Job Sequence: ");
+            Console.WriteLine("Following is maximum profit sequence of jobs:");
             foreach (char jb in job)
             {
                 Console.Write(jb + " ");
@@ -105,10 +102,13 @@ namespace AlgoApplication.Greedy
             _jobList.Add(new Job('c', 2, 27));
             _jobList.Add(new Job('d', 1, 25));
             _jobList.Add(new Job('e', 3, 15));
+            _jobList.Add(new Job('f', 3, 35));
+            _jobList.Add(new Job('g', 4, 10));
+            _jobList.Add(new Job('h', 4, 50));
         }
     }
 
-    internal class GFG : IComparer<Job>
+    internal class JobComparer : IComparer<Job>
     {
         public int Compare(Job x, Job y)
         {
@@ -117,7 +117,6 @@ namespace AlgoApplication.Greedy
                 return 0;
             }
 
-            // CompareTo() method
             return (y.profit).CompareTo(x.profit);
 
         }
