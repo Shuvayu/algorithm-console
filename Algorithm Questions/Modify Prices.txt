@@ -1,0 +1,113 @@
+QUESTION DESCRIPTION
+Michael is a shop owner who keeps a list of the name and sale price for each item in the store's inventory. At each sale, his employees record the name and sale price of each item sold. Michael suspects his manager, Alex, of embezzling money by modifying the sale price of some of the items. Write a program that finds the number of times Alex recorded an incorrect sale price.
+
+ 
+
+Function Description 
+
+Complete the function verifyItems in the editor below. The function must return an integer denoting the number of sale prices incorrectly recorded by Alex.
+
+ 
+
+verifyItems has the following parameter(s):
+
+    origItems[origItems[0],...origItems[n-1]]:  an array of n strings, where each origItems[i] is the name of an item in inventory
+
+    origPrices[origPrices[0],...origPrices[n-1]]:  an array of n floating point numbers, where each origPrices[i] is the price of origItems[i]
+
+    items[items[0],...items[m-1]]:  an array of m strings containing the name of each item[j] sold by Alex
+
+    prices[prices[0],...prices[m-1]]:  An array of floating-point numbers, where each prices[j] contains the sale price recorded by Alex for items[j].
+
+ 
+
+Constraints
+
+1 = n = 105
+1 = m = n
+1.00 = origPrices[i], prices[j] = 100000.00, where 0 = i < n, and 0 = j < m
+Input Format for Custom Testing
+Input from stdin will be processed as follows and passed to the function.
+
+ 
+
+The first line contains an integer n, denoting the size of the origItems array.
+
+The next n lines each contain an element origItems[i].
+
+The next line contains an integer n, denoting the size of the origPrices array.
+
+The next n lines each contain an element origPrices[i].
+
+The next line contains an integer m, denoting the size of the items array.
+
+The next m lines each contain an element items[j].
+
+The next line contains an integer, m, the size of the prices array.
+
+The next m lines each contain an element prices[j].
+
+Sample Case 0
+Sample Input 0
+
+4
+rice
+sugar
+wheat
+cheese
+4
+16.89
+56.92
+20.89
+345.99
+2
+rice
+cheese
+2
+18.99
+400.89
+Sample Output 0
+
+2
+Explanation 0
+
+Given the following:
+
+origItems = ["rice", "sugar", "wheat"," cheese"]
+origPrices = [16.89, 56.92, 20.89, 345.99]
+items = ["rice", "cheese"]
+prices = [18.99, 400.89]
+The prices for rice and cheese do not match the original price list, so we return 2 as the number of incorrectly recorded sale prices.
+
+Sample Case 1
+Sample Input 1
+
+3
+chocolate
+cheese
+tomato
+3
+15.00
+300.90
+23.44
+3
+chocolate
+cheese
+tomato
+3
+15.00
+300.90
+10.00
+Sample Output 1
+
+1
+Explanation 1
+
+Given the following:
+
+origItems = ["chocolate", "cheese", "tomato"]
+origPrices = [15.00, 300.90, 23.44]
+items = ["chocolate", "cheese", "tomato"]
+prices = [15.00, 300.90, 10.00]
+The price for tomato does not match the original price list, so we return 1 as the number of incorrectly recorded sale prices.
+

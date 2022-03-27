@@ -23,7 +23,7 @@ namespace AlgoApplication.Arrays
             Input();
 
             Process();
-            ProcessWithDicytionary();
+            ProcessWithDictionary();
 
             Console.Write(Environment.NewLine);
         }
@@ -50,7 +50,7 @@ namespace AlgoApplication.Arrays
             }
         }
 
-        private void ProcessWithDicytionary()
+        private void ProcessWithDictionary()
         {
             var numsDictionary = new Dictionary<int, int>();
 

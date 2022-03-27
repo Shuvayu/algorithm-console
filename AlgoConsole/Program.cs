@@ -10,7 +10,7 @@ namespace AlgoConsole
 
         public static void Main()
         {
-            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.BackgroundColor = ConsoleColor.Blue;
             Console.ForegroundColor = ConsoleColor.White;
             Console.Title = "Algorithm Playground";
 
@@ -21,11 +21,11 @@ namespace AlgoConsole
 
         private static void Run()
         {
-            var builder = new ConfigurationBuilder()
-             .SetBasePath(Directory.GetCurrentDirectory())
-             .AddJsonFile("appsettings.json");
+            // var builder = new ConfigurationBuilder()
+            //  .SetBasePath(Directory.GetCurrentDirectory())
+            //  .AddJsonFile("appsettings.json");
 
-            Configuration = builder.Build();
+            // Configuration = builder.Build();
 
             var menu = new Menu();
             menu.DisplayMenu();

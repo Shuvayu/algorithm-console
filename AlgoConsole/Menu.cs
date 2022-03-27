@@ -1,6 +1,7 @@
 ﻿using AlgoIApplication;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 
 namespace AlgoConsole
@@ -68,8 +69,11 @@ namespace AlgoConsole
             var index = 1;
             foreach (Type type in AlgoTypes)
             {
-                menuDictionary.Add(index, type.Name);
-                index++;
+                if (typeof(IAlgorithm).IsAssignableFrom(type))
+                {
+                    menuDictionary.Add(index, type.Name);
+                    index++;
+                }                
             }
 
             menuDictionary.Add(0, "Exit");
@@ -97,6 +101,7 @@ namespace AlgoConsole
             }
             return type;
         }
+
         #endregion
     }
 }
